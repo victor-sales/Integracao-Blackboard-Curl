@@ -1,0 +1,4 @@
+neylla.andrade@soufunorte.com.br|neylla.andrade@soufunorte.com.br|FUN_IMPORT_20201A|Neylla|Cristiane Leite Andrade|2de5a8a898ddf719b53669acb8f83609|neylla.andrade@soufunorte.com.br|FUNORTE_ALUNO|Enabled|md5
+paulo.ferreira@soufunorte.com.br|paulo.ferreira@soufunorte.com.br|FUN_IMPORT_20201A|Paulo|Henrique Silva Ferreira|2de5a8a898ddf719b53669acb8f83609|paulo.ferreira@soufunorte.com.br|FUNORTE_ALUNO|Enabled|md5
+poliana.matos@soufunorte.com.br|poliana.matos@soufunorte.com.br|FUN_IMPORT_20201A|Poliana|Santos Matos|2de5a8a898ddf719b53669acb8f83609|poliana.matos@soufunorte.com.br|FUNORTE_ALUNO|Enabled|md5
+saulo.silva@soufunorte.com.br|saulo.silva@soufunorte.com.br|FUN_IMPORT_20201A|Saulo|Cerezo Araujo Silva|2de5a8a898ddf719b53669acb8f83609|saulo.silva@soufunorte.com.br|FUNORTE_ALUNO|Enabled|md5

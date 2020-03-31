@@ -1,0 +1,4 @@
+external_term_key|data_source_key|name|duration|start_date|end_date
+20201a|FUN_IMPORT_20201A|Primeiro Semestre 2020/1a|Range|20200210|20200731
+
+
