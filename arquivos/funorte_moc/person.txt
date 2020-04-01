@@ -1,0 +1,2 @@
+external_person_key|user_id|data_source_key|firstname|lastname|passwd|email|institution_role|row_status|pwencryptiontype
+545|545|FUN_IMPORT_20201A|Pedro|Andrade Oliveira|2de5a8a898ddf719b53669acb8f83609|pedro.cardososoufunorte.com.br|FUNORTE_ALUNO|Enabled|md5

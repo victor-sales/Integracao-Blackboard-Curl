@@ -7,24 +7,23 @@ date_default_timezone_set('America/Sao_Paulo');
 $date = date('Y-m-d H:i:s');
 $ip = $_SERVER['REMOTE_ADDR'];
 
-$dir = "arquivos/"; 
+//$dir = "arquivos/"; 
+
 $file = $_FILES["file"]; 
 $file_name = $file["name"];
 
-$path = "$dir/".$file_name;
-
 $unity = $_POST["select_unity"];
 $option_file = $_POST["select_file"];
+
+//Chamada da função url_and_dir, que define, com base na unidade e arquivo selecionados, qual será o diretório do arquivo a ser salvo e a url para envio do arquivo
+$url_and_dir = url_and_dir($unity, $option_file);
+$path = $url_and_dir["diretorio"].$file_name;
 
 //localizar extensão do arquivo
 $csv_ext = strstr($file_name, ".csv");
 $txt_ext = strstr($file_name, ".txt");
 
-//Chamada da função url, que define, com base na unidade e arquivo selecionados, qual será a url para envio do arquivo
-$url = url($unity, $option_file);
-
-//Passa de csv para txt
-
+//verifica se o arquivo é txt ou csv
 if ($csv_ext == false && $txt_ext == false) {
     
     echo "Erro: Nome/extensão do arquivo diferente do padrão";
@@ -45,7 +44,7 @@ if ($csv_ext == false && $txt_ext == false) {
         $curl = curl_init();
     
         curl_setopt_array($curl, array(
-            CURLOPT_URL => $url,
+            CURLOPT_URL => $url_and_dir["url"],
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => "",
             CURLOPT_SSL_VERIFYPEER => true,

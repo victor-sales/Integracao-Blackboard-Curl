@@ -1,10 +1,11 @@
 <?php
 
-function url($unity, $option_file) {
+function url_and_dir($unity, $option_file) {
 
     switch ($unity) {
         case 'fun_moc':
             $url = "https://unisantanna-test.blackboard.com/webapps/bb-data-integration-flatfile-BB5bfc25366f037/endpoint/$option_file/store";
+            $dir = "arquivos/funorte_moc/";
             break;
     
         default:
@@ -12,7 +13,10 @@ function url($unity, $option_file) {
             return false;
     }
 
-    return $url;
+    return array(
+        "url" => $url, 
+        "diretorio" => $dir
+    );
 }
 
 //--------------------------------------------------------------------------------------------------------------------------------

@@ -22,7 +22,7 @@
             <h1 class="text-center">Arquivos de Integração BlackBoard</h1>
         </div>
         <hr>
-        <div class="container">
+        <div class="container-fluid">
             <form id="form" action="curl.php" method="post" enctype="multipart/form-data">
                 <div class="form-group">
                     <div class="row d-flex justify-content-center"> 
