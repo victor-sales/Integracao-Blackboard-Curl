@@ -8,4 +8,16 @@
     font-weight: bold;
 }
 
+.div-card {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    right: 10%;
+}
 
+/* footer{
+    position: absolute; 
+    width:100%; 
+    bottom:0;
+    background-color: #29589C;
+} */

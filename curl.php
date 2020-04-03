@@ -22,12 +22,13 @@ $path = $url_and_dir["diretorio"] . $file_name;
 if (move_uploaded_file($file["tmp_name"], $path)) {
 
     //muda de csv para txt se necessário
-    csv_to_txt($csv_ext, $file_name, $path);
-    //valida emaiis do arquivo
+    comma_to_pipe($path);
+    //valida emails do arquivo
     $valida_email = validate_email($path);
-
+    var_dump($valida_email);
+    exit;
     if ($valida_email == false) {
-        echo 'Erro: Seu arquivo ' . $file_name . ' possui erro no campo email. Verique os email digitados.';
+        echo 'Erro: Seu arquivo ' . $file_name . ' possui erros no campo email. Verique os email digitados.';
         exit;
     } else {
         define('HEADER_TOKEN', 'authorization: Basic ' . base64_encode("58b8e07d-a3ea-4c76-97cd-5d4e903dd853:integracao") . '');
