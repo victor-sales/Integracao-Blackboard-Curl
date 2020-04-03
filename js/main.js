@@ -25,7 +25,12 @@ $(document).ready( function(){
                             alert('O arquivo não foi inserido');
                             return false;
                         } else {
-                            alert("Enviando Arquivo...");
+                            if (verifica_arquivo.search(".txt") == -1 && verifica_arquivo.search(".csv") == -1) {
+                                alert("Arquivo inválido. A aplicação aceita arquivos .txt e .csv");
+                                return false;
+                            } else {
+                                alert("Enviando Arquivo...");
+                            }
                         }            
                     }        
                 }             
