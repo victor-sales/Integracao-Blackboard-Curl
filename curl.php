@@ -31,48 +31,55 @@ if ($csv_ext == false && $txt_ext == false) {
 } else {
 
     if (move_uploaded_file($file["tmp_name"], $path)) { 
-    
+
         //muda de csv para txt se necessário
         csv_to_txt($csv_ext, $file_name, $path);
+        //valida emaiis do arquivo
+        $valida_email = validate_email($path);
 
-        define('HEADER_TOKEN', 'authorization: Basic ' . base64_encode("58b8e07d-a3ea-4c76-97cd-5d4e903dd853:integracao") . '');
-        define('HEADER_CACHE', 'cache-control: no-cache');
-        define('HEADER_CONTENT', 'Content-Type:text/plain');
-    
-        $uploaded_file = file_get_contents($path); 
-        
-        $curl = curl_init();
-    
-        curl_setopt_array($curl, array(
-            CURLOPT_URL => $url_and_dir["url"],
-            CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_ENCODING => "",
-            CURLOPT_SSL_VERIFYPEER => true,
-            CURLOPT_MAXREDIRS => 10,
-            CURLOPT_TIMEOUT => 30,
-            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-            CURLOPT_POST => true,
-            CURLOPT_POSTFIELDS => $uploaded_file,
-            CURLOPT_HTTPHEADER => array(
-                "" . HEADER_TOKEN . "",
-                "" . HEADER_CACHE . "",
-                "" . HEADER_CONTENT . ""
-            ),
-        ));
-     
-        $response = curl_exec($curl);
-        $err = curl_error($curl);
-        
-        curl_close($curl);
-    
-        if ($err) {
-            echo $err;
-            $level = "Erro";
-            logs($date, $level, $ip, $err);
+        if ($valida_email == false) {
+            echo 'Erro: Seu arquivo ' . $file_name . ' possui erro no campo email. Verique os email digitados.';
+            exit;
         } else {
-            echo $response;
-            $level = "Mensagem";
-            logs($date, $level, $ip, $response);
+            define('HEADER_TOKEN', 'authorization: Basic ' . base64_encode("58b8e07d-a3ea-4c76-97cd-5d4e903dd853:integracao") . '');
+            define('HEADER_CACHE', 'cache-control: no-cache');
+            define('HEADER_CONTENT', 'Content-Type:text/plain');
+        
+            $uploaded_file = file_get_contents($path); 
+            
+            $curl = curl_init();
+        
+            curl_setopt_array($curl, array(
+                CURLOPT_URL => $url_and_dir["url"],
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_ENCODING => "",
+                CURLOPT_SSL_VERIFYPEER => true,
+                CURLOPT_MAXREDIRS => 10,
+                CURLOPT_TIMEOUT => 30,
+                CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                CURLOPT_POST => true,
+                CURLOPT_POSTFIELDS => $uploaded_file,
+                CURLOPT_HTTPHEADER => array(
+                    "" . HEADER_TOKEN . "",
+                    "" . HEADER_CACHE . "",
+                    "" . HEADER_CONTENT . ""
+                ),
+            ));
+         
+            $response = curl_exec($curl);
+            $err = curl_error($curl);
+            
+            curl_close($curl);
+        
+            if ($err) {
+                echo $err;
+                $level = "Erro";
+                logs($date, $level, $ip, $err);
+            } else {
+                echo $response;
+                $level = "Mensagem";
+                logs($date, $level, $ip, $response);
+            }
         }
 
     } else { 

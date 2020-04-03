@@ -46,7 +46,7 @@ function csv_to_txt($csv_ext, $file_name, $path) {
         rewind($arquivo); 
         
         if (!fwrite($arquivo, $string)){                
-            die ('Não foi possível enviar o arquivo');  
+            die ('Erro: Não foi possível enviar o arquivo');  
 
         } else {
 
@@ -63,5 +63,42 @@ function csv_to_txt($csv_ext, $file_name, $path) {
     return $file_name;
 }
 
+//--------------------------------------------------------------------------------------------------------------------------------
+
+function validate_email($path) {
+
+    $arquivo = fopen ($path, 'r');
+    $result = array();
+    $contador = 0;
+    
+    while(!feof($arquivo)){
+        $result[] = explode("|",fgets($arquivo));
+    }
+
+    $num_linhas = count(file($path));    
+    fclose($arquivo);
+
+    foreach ($result as $linha) {
+        
+        $find_email = array_column($result, array_search('email', $linha));
+        
+        if ($find_email == true) {
+            for ($i=1; $i <= count($find_email); $i++) { 
+                
+                if (filter_var($find_email[$i], FILTER_VALIDATE_EMAIL) == false) {
+                    
+                    return false;    
+                                   
+                } else {
+                    return true;
+                }
+            }
+        } else {
+            
+            return false;
+        }
+    }
+    
+}
 
 ?>
