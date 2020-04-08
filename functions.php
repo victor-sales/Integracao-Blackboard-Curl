@@ -68,7 +68,8 @@ function validate_email($path)
     $arquivo = fopen($path, 'r');
     $result = array();
     $find_email = array();
-    $contador = 0;
+    $emails = "";
+    $msg = "";
 
     while (!feof($arquivo)) {
         $result[] = explode("|", fgets($arquivo));
@@ -80,25 +81,27 @@ function validate_email($path)
 
         $posicao = array_search('email', $linha);
         if ($posicao) {
+            $find_email = array_column($result, $posicao);
             break;
         }
+        else {
+            return false;
+        } 
     }
-
-    $find_email = array_column($result, $posicao);
 
     for ($i = 1; $i < count($find_email); $i++) {
 
         if (filter_var($find_email[$i], FILTER_VALIDATE_EMAIL)) {
         } else {
-            $contador += 1;
-            $email = $find_email[$i];
+            $emails = $emails . " " . $find_email[$i];
         }
     }
-    
-    // return array (
-    //     "contador" => $contador,
-    //     "lista_email" => $email
-    // );
 
-    return $email;
+    if ($emails == "") {
+        return false;
+    } else {
+        $msg_erro_email = "Os email de " . $emails . " contem erros. Estes alunos foram cadastrados com o campo de email vazio";
+        return $msg_erro_email;
+    }
+    
 }
