@@ -93,14 +93,14 @@ function validate_email($path)
 
         if (filter_var($find_email[$i], FILTER_VALIDATE_EMAIL)) {
         } else {
-            $emails = $emails . " " . $find_email[$i];
+            $emails = $emails . ", " . $find_email[$i];
         }
     }
 
     if ($emails == "") {
         return false;
     } else {
-        $msg_erro_email = "Os email de " . $emails . " contem erros. Estes alunos foram cadastrados com o campo de email vazio";
+        $msg_erro_email = "Os emails" . $emails . " contem erros. Estes alunos foram cadastrados com o campo de email vazio";
         return $msg_erro_email;
     }
     

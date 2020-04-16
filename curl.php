@@ -61,7 +61,7 @@ if (move_uploaded_file($file["tmp_name"], $path)) {
     } else {
 
         if ($msg_erro_email) {
-            $response = $response . "<br>" . $msg_erro_email;
+            $response = $response . "<strong>" . $msg_erro_email . "</strong>";
             echo $response;
             $level = "Atencao";
             logs($date, $level, $ip, $response);
