@@ -1,2 +1,0 @@
-external_course_key|course_id|course_name|data_source_key|term_key|template_course_key
-SEDEMELOCCAP1O20201A|SEDEMELOCCAP1O20201A|2020.1 - Algoritmo e Programação - On-line|FUN_IMPORT_20201A|20201a|algoritmo_e_programacao-mae

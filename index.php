@@ -36,7 +36,7 @@
                                 <div class="col-sm-6">
                                     <select class="form-control" id="select_unity" name="select_unity">
                                         <option value="" selected>Escolha uma unidade</option>
-                                        <option value="fun_moc">Escola</option>
+                                        <option value="1">Escola</option>
                                         <option value="outra">-</option>
                                     </select>
                                 </div>

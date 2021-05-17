@@ -1,6 +1,0 @@
-external_course_key|data_source_key|external_person_key|role|row_status|available_ind
-SEDE_FUNORTE_MELO_CCAP1O20201A|FUN_IMPORT_20201A|murilo.oliveira@soufunorte.com.br|S|Enabled|Y
-SEDE_FUNORTE_MELO_CCAP1O20201A|FUN_IMPORT_20201A|neylla.andrade@soufunorte.com.br|S|Enabled|Y
-SEDE_FUNORTE_MELO_CCAP1O20201A|FUN_IMPORT_20201A|paulo.ferreira@soufunorte.com.br|S|Enabled|Y
-SEDE_FUNORTE_MELO_CCAP1O20201A|FUN_IMPORT_20201A|poliana.matos@soufunorte.com.br|S|Enabled|Y
-SEDE_FUNORTE_MELO_CCAP1O20201A|FUN_IMPORT_20201A|saulo.silva@soufunorte.com.br|S|Enabled|Y

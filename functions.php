@@ -4,7 +4,7 @@ function url_and_dir($unity, $option_file)
 {
 
     switch ($unity) {
-        case 'fun_moc':
+        case '1':
             $url = "";
             $dir = "";
             break;
