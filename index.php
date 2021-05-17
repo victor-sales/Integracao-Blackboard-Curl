@@ -23,7 +23,7 @@
                             <img class="img-responsive" src="img\soebras.jpg" width="180" height="130">
                         </div>
                         <div class="col-sm-6">
-                            <h1 class="text-center">Importação BlackBoard <br> Grupo Soebras</h1>
+                            <h1 class="text-center">Importação BlackBoard</h1>
                         </div>
                         <div class="col-sm-3" style="text-align: left">
                             <img class="img-responsive" src="img\logo_bb.png" width="120" height="120">
